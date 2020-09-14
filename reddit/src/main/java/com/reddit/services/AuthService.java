@@ -6,9 +6,15 @@ import java.util.UUID;
 
 import javax.transaction.Transactional;
 
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.reddit.dto.AuthenticationResponse;
+import com.reddit.dto.LoginRequest;
 import com.reddit.dto.RegisterRequest;
 import com.reddit.exceptions.SpringRedditException;
 import com.reddit.model.NotificationEmail;
@@ -16,6 +22,7 @@ import com.reddit.model.User;
 import com.reddit.model.VerificationToken;
 import com.reddit.repository.UserRepository;
 import com.reddit.repository.VerificationTokenRepository;
+import com.reddit.security.JwtProvider;
 
 import lombok.AllArgsConstructor;
 
@@ -27,6 +34,8 @@ public class AuthService {
 	private final UserRepository userRepository;
 	private final VerificationTokenRepository verificationTokenRepository;
 	private final MailService mailService;
+	private final AuthenticationManager authenticationManager;
+	private final JwtProvider jwtProvider;
 
 	@Transactional
 	public void signUp(RegisterRequest registerRequest) {
@@ -66,6 +75,13 @@ public class AuthService {
 		user.orElseThrow(() -> new SpringRedditException("User not found with name: " + username));
 		user.get().setEnabled(true);
 		userRepository.save(user.get());
+	}
+
+	public AuthenticationResponse login(LoginRequest loginRequest) {
+		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+		String token = jwtProvider.generateToken(authentication);
+		return new AuthenticationResponse(token, loginRequest.getUsername());
 	}
 
 }
