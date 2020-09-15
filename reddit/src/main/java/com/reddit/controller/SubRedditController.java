@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.reddit.dto.SubRedditDto;
-import com.reddit.services.SubRedditService;
+import com.reddit.service.SubRedditService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,10 +20,10 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/api/subreddit")
 @AllArgsConstructor
-@Slf4j
+@Slf4j 
 public class SubRedditController {
 
-	private final SubRedditService subRedditService;
+	private final SubRedditService subRedditService; 
 
 	@PostMapping
 	public ResponseEntity<SubRedditDto> createSubReddit(@RequestBody SubRedditDto subRedditDto) {

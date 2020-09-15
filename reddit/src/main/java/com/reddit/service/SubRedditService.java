@@ -1,4 +1,4 @@
-package com.reddit.services;
+package com.reddit.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,7 +25,7 @@ public class SubRedditService {
 	
 
 	@Transactional
-	public SubRedditDto save(SubRedditDto subRedditDto) {
+	public SubRedditDto save(SubRedditDto subRedditDto) { 
 		SubReddit save = subRedditRepository.save(subRedditMapper.mapDtoToSubReddit(subRedditDto));
 		subRedditDto.setSubRedditId(save.getSubRedditId());
 		return subRedditDto;

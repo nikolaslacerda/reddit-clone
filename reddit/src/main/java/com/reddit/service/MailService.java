@@ -1,4 +1,4 @@
-package com.reddit.services;
+package com.reddit.service;
 
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;

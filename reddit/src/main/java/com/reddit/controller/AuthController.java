@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.reddit.dto.AuthenticationResponse;
 import com.reddit.dto.LoginRequest;
 import com.reddit.dto.RegisterRequest;
-import com.reddit.services.AuthService;
+import com.reddit.service.AuthService;
 
 import lombok.AllArgsConstructor;
 
@@ -23,7 +23,7 @@ public class AuthController {
 
 	private final AuthService authService;
 
-	@PostMapping("/signup")
+	@PostMapping("/signup") 
 	public ResponseEntity<String> signUp(@RequestBody RegisterRequest registerRequest) {
 		authService.signUp(registerRequest);
 		return new ResponseEntity<>("User registration successful", HttpStatus.OK);

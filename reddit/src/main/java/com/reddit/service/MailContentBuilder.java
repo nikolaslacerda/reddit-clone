@@ -1,4 +1,4 @@
-package com.reddit.services;
+package com.reddit.service;
 
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;

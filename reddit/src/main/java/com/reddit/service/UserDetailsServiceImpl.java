@@ -1,4 +1,4 @@
-package com.reddit.services;
+package com.reddit.service;
 
 import static java.util.Collections.singletonList;
 

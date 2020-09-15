@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
+@AllArgsConstructor 
 @NoArgsConstructor
 @Entity
 @Table(name="posts")
@@ -52,5 +52,5 @@ public class Post {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "subRedditId", referencedColumnName = "subRedditId")
-	private SubReddit subreddit;
+	private SubReddit subReddit;
 }
