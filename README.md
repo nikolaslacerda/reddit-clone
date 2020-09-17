@@ -21,6 +21,7 @@
 
 <p align="center">
  <a href="#computer-projeto">Projeto</a> •
+    <a href="#art-layout">Layout</a> •
  <a href="#rocket-tecnologias">Tecnologias</a> •
  <a href="#construction_worker-como-executar">Como executar</a>
 </p>
@@ -30,6 +31,16 @@
 Um pequeno clone do Reddit construído usando Spring Boot, Spring Security com autenticação JWT, Spring Data JPA com PostgreSQL e Spring MVC. O frontend foi construído usando Angular. 
 
 O projeto explora as principais funcionalidades do Reddit, como a criação de subreddits, posts, comentários e votos.
+
+## :art: Layout
+
+Home | Post
+---|---
+| ![home](.github/home-page.png) | ![post](.github/post-page.png) 
+
+Profile | Create Subreddit
+---|---
+| ![profile](.github/profile-page.png) | ![subreddit](.github/create-subreddit-page.png) | 
 
 ## :rocket: Tecnologias
 
