@@ -44,6 +44,9 @@
     "tslint": "~6.1.0",
     "typescript": "~4.0.2",
     "ngx-webstorage": "5.0.0",
-    "ngx-toastr": "12.0.1"
+    "ngx-toastr": "12.0.1",
+    "@fortawesome/angular-fontawesome": "0.7.0",
+    "@fortawesome/fontawesome-svg-core": "1.2.30",
+    "@fortawesome/free-solid-svg-icons": "5.14.0"
   }
 }

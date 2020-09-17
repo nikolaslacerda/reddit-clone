@@ -4,6 +4,16 @@ input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
 
+html {
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  margin-top: 63px;
+  height: 100%;
+}
+
 .login, .sign-up {
   background-color: #0079D3;
   border-color: #0079D3;
