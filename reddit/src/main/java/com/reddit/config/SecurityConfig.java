@@ -15,6 +15,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.reddit.security.JwtAuthenticationFilter;
 
+import org.springframework.http.HttpMethod;
 import lombok.AllArgsConstructor;
 
 @EnableWebSecurity
@@ -32,9 +33,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity.cors().and().csrf().disable().authorizeRequests().antMatchers("/api/auth/**").permitAll()
-				.antMatchers("/api/subreddit").permitAll().antMatchers("/v2/api-docs", "/configuration/ui",
-						"/swagger-resources/**", "/configuration/security", "/swagger-ui.html", "/webjars/**")
+		httpSecurity.cors().and().csrf().disable().authorizeRequests().antMatchers("/api/auth/**").permitAll().antMatchers(HttpMethod.GET, "/api/subreddit").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/posts/").permitAll().antMatchers(HttpMethod.GET, "/api/posts/**")
+				.permitAll().antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**",
+						"/configuration/security", "/swagger-ui.html", "/webjars/**")
 				.permitAll().anyRequest().authenticated();
 
 		httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
