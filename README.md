@@ -32,6 +32,8 @@ Um pequeno clone do Reddit construído usando Spring Boot, Spring Security com a
 
 O projeto explora as principais funcionalidades do Reddit, como a criação de subreddits, posts, comentários e votos.
 
+O projeto está hospedado no Heroku e pode ser acessado clicando [aqui](https://web-reddit-clone.herokuapp.com).
+
 ## :art: Layout
 
 Home | Post
