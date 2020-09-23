@@ -12,6 +12,7 @@ html {
 body {
   margin-top: 63px;
   height: 100%;
+  background-color: #DAE0E6;
 }
 
 .login, .sign-up {
@@ -31,4 +32,9 @@ body {
   text-transform: uppercase;
   padding: 3px 16px;
   opacity: 1;
+}
+
+.login:disabled, .sign-up:disabled{
+  background-color: #9fa4aa;
+  border-color: #9fa4aa;
 }
