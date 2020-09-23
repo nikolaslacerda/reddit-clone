@@ -47,8 +47,7 @@ public class AuthService {
 		user.setEmail(registerRequest.getEmail());
 		user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
 		user.setCreated(Instant.now());
-		user.setEnabled(false);
-
+		user.setEnabled(true);
 		userRepository.save(user);
 
 		String token = generateVerificationToken(user);

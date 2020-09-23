@@ -11,6 +11,6 @@ export class VoteService {
   constructor(private http: HttpClient) { }
 
   vote(votePayload: VotePayload): Observable<any> {
-    return this.http.post('http://localhost:8080/api/votes/', votePayload);
+    return this.http.post('https://server-reddit-clone.herokuapp.com/api/votes/', votePayload);
   }
 }
